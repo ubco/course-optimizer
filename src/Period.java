@@ -67,5 +67,5 @@ public class Period {
 	public int getFitness() {	//Return the score indicating how good this period of time is.
 		int blocks = ((endTime - startTime) / 50);
 		return blocks * blocks;
-	}
+	}	
 }
