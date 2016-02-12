@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
 public class courseOptimizer {
 	public static void main(String[] args) {
-		ArrayList<Period>[] timeTable = new ArrayList[7];
-		for(int i = 0; i < 7; i++) {
-			timeTable[i] = new ArrayList<Period>();
-		}
+		TimeTable tt = new TimeTable();
+		tt.add(new Period(0, 1450, 1550));
+		tt.add(new Period(0, 1650, 1750));
+		tt.add(new Period(0, 1350, 1450));
 	}
 }

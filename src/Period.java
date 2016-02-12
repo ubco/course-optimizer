@@ -1,4 +1,4 @@
-public class Period {
+public class Period implements Comparable<Period> {
 	//Class fields + getters/setters
 	private String dept, course, section, campuscd;	//Naming conventions from the website.
 	public String getDept() {
@@ -41,17 +41,17 @@ public class Period {
 		case 6:
 			return "Sunday";
 		default:
-			return "No such day";
+			return "Nullday";
 		}
 	}
 	
 	//Constructors
 	public Period(String dept, String course, String section, String campuscd,
 			Integer day, Integer startTime, Integer endTime) {
-		this.dept = new String(dept);			//"COSC"
-		this.course = new String(course);		//"121" This CAN have non-numeric characters
-		this.section = new String(section);		//"001"
-		this.campuscd = new String(campuscd);	//"UBC" or "UBCO"
+		this.dept = dept+"";			//"COSC"
+		this.course = course+"";		//"121" This CAN have non-numeric characters
+		this.section = section+"";		//"001"
+		this.campuscd = campuscd+"";	//"UBC" or "UBCO"
 		this.day = day;
 		this.startTime = startTime;
 		this.endTime = endTime;
@@ -67,5 +67,9 @@ public class Period {
 	public int getFitness() {	//Return the score indicating how good this period of time is.
 		int blocks = ((endTime - startTime) / 50);
 		return blocks * blocks;
+	}
+	@Override
+	public int compareTo(Period o) {
+		return this.startTime - o.startTime;
 	}	
 }
